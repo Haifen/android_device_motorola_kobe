@@ -4,7 +4,7 @@ CyanogenMod 7.2 for Motorola Kobe (Android 2.3.7 AOSP)
 Download:
 =========
 
-repo init -u git://github.com/CyanogenDefy/android.git -b gingerbread
+repo init -u git://github.com/CyanogenKobe/android.git -b gingerbread
 
 repo sync
 
