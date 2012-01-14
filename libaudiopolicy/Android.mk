@@ -1,5 +1,5 @@
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),jordan)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),kobe)
 
 LOCAL_PATH := $(call my-dir)
 

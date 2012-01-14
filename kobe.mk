@@ -15,7 +15,7 @@
 #
 
 #
-# This is the product configuration for a generic Motorola Defy (jordan)
+# This is the product configuration for a generic Motorola Defy (kobe)
 #
 
 # The gps config appropriate for this device
@@ -24,20 +24,17 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 ## (2) Also get non-open-source files if available
-$(call inherit-product-if-exists, vendor/motorola/jordan/jordan-vendor.mk)
+$(call inherit-product-if-exists, vendor/motorola/kobe/kobe-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.media.capture.maxres=5m \
-	ro.media.capture.flash=led \
-	ro.media.capture.flashIntensity=41 \
-	ro.media.capture.torchIntensity=25 \
-	ro.media.capture.classification=classH \
+	ro.media.capture.maxres=3m \
+	ro.media.capture.classification=classA \
 	ro.media.capture.flip=horizontalandvertical \
 	ro.com.google.locationfeatures=1 \
 	ro.telephony.call_ring.multiple=false \
 	ro.telephony.call_ring.delay=3000 \
-	ro.url.safetylegal=http://www.motorola.com/staticfiles/Support/legal/?model=MB525 \
+	ro.url.safetylegal=http://www.motorola.com/staticfiles/Support/legal/?model=MB520 \
 	ro.media.dec.jpeg.memcap=20000000 \
 	ro.media.dec.aud.wma.enabled=1 \
 	ro.media.dec.vid.wmv.enabled=1 \
@@ -46,7 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dexopt-data-only=1 \
 	ro.vold.umsdirtyratio=20
 
-DEVICE_PACKAGE_OVERLAYS += device/motorola/jordan/overlay
+DEVICE_PACKAGE_OVERLAYS += device/motorola/kobe/overlay
 
 PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -81,12 +78,10 @@ PRODUCT_PACKAGES += \
 	libOMX.TI.MP3.decode \
 	libOMX.TI.WBAMR.decode \
 	libOMX.TI.WMA.decode \
-	libOMX.TI.Video.Decoder \
+	libOMX.TI.Video.Decoder \https://github.com/CyanogenKobe/android_device_motorola_kobe/commit/78a0ce7b53fce408d86e541b1014116981763510
 	libOMX.TI.Video.encoder \
 	libLCML \
 	libOMX_Core \
-	libcamera \
-	libfnc \
 	libaudiopolicy \
 	iwmulticall \
 	hostap \
@@ -94,6 +89,7 @@ PRODUCT_PACKAGES += \
 	libhostapdcli \
 	DefyParts \
 	Usb \
+        libfnc \
 	su
 
 # for jpeg hw encoder/decoder
@@ -106,26 +102,26 @@ PRODUCT_PACKAGES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_COPY_FILES += \
-	device/motorola/jordan/vold.fstab:system/etc/vold.fstab
+	device/motorola/kobe/vold.fstab:system/etc/vold.fstab
 
 # copy all vendor (motorola) kernel modules to system/lib/modules
-PRODUCT_COPY_FILES += $(shell test -d vendor/motorola/jordan/lib/modules &&  \
-	find vendor/motorola/jordan/lib/modules -name '*.ko' \
+PRODUCT_COPY_FILES += $(shell test -d vendor/motorola/kobe/lib/modules &&  \
+	find vendor/motorola/kobe/lib/modules -name '*.ko' \
 	-printf '%p:system/lib/modules/%f ')
 
 # copy all others kernel modules under the "modules" directory to system/lib/modules
-PRODUCT_COPY_FILES += $(shell test -d device/motorola/jordan/modules && \
-	find device/motorola/jordan/modules -name '*.ko' \
+PRODUCT_COPY_FILES += $(shell test -d device/motorola/kobe/modules && \
+	find device/motorola/kobe/modules -name '*.ko' \
 	-printf '%p:system/lib/modules/%f ')
 
 # Prebuilt boot.img
-LOCAL_KERNEL := device/motorola/jordan/kernel
+LOCAL_KERNEL := device/motorola/kobe/kernel
 PRODUCT_COPY_FILES += \
 	$(LOCAL_KERNEL):kernel
 
 # Blobs
-$(call inherit-product, device/motorola/jordan/jordan-blobs.mk)
-$(call inherit-product, device/motorola/jordan/bootmenu/bootmenu.mk)
+$(call inherit-product, device/motorola/kobe/kobe-blobs.mk)
+$(call inherit-product, device/motorola/kobe/bootmenu/bootmenu.mk)
 
 # Live wallpaper packages
 PRODUCT_PACKAGES += \
@@ -144,6 +140,6 @@ $(call inherit-product, build/target/product/full_base.mk)
 # Should be after the full_base include, which loads languages_full
 PRODUCT_LOCALES += hdpi
 
-PRODUCT_NAME := generic_jordan
-PRODUCT_DEVICE := MB525
+PRODUCT_NAME := generic_kobe
+PRODUCT_DEVICE := MB520
 

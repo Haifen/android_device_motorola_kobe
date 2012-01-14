@@ -14,6 +14,7 @@ rm -rf /preinstall
 cp -f /system/bootmenu/2nd-init/* /
 ln -s /init /sbin/ueventd
 cp -f /system/bin/adbd /sbin/adbd
+rm -rf /tmp
 
 ADBD_RUNNING=`ps | grep adbd | grep -v grep`
 if [ -z "$ADB_RUNNING" ]; then

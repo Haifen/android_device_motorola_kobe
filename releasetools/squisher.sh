@@ -1,9 +1,9 @@
 # This script is included in squisher
 # It is the final build step (after OTA package)
 
-DEVICE_OUT=$ANDROID_BUILD_TOP/out/target/product/jordan
-DEVICE_TOP=$ANDROID_BUILD_TOP/device/motorola/jordan
-VENDOR_TOP=$ANDROID_BUILD_TOP/vendor/motorola/jordan
+DEVICE_OUT=$ANDROID_BUILD_TOP/out/target/product/kobe
+DEVICE_TOP=$ANDROID_BUILD_TOP/device/motorola/kobe
+VENDOR_TOP=$ANDROID_BUILD_TOP/vendor/motorola/kobe
 
 # Delete unwanted apps
 rm -f $REPACK/ota/system/app/RomManager.apk
@@ -23,12 +23,7 @@ cp $REPACK/ota/system/etc/terminfo/l/linux $REPACK/ota/system/etc/terminfo/x/xte
 # prebuilt boot, devtree, logo & updater-script
 rm -f $REPACK/ota/boot.img
 cp -f $DEVICE_TOP/updater-script $REPACK/ota/META-INF/com/google/android/updater-script
-if [ -n "$CYANOGEN_RELEASE" ]; then
-  cat $DEVICE_TOP/updater-script-rel >> $REPACK/ota/META-INF/com/google/android/updater-script
-  cp -f $VENDOR_TOP/boot-222-179-4.smg $REPACK/ota/boot.img
-  cp -f $VENDOR_TOP/devtree-222-179-2.smg $REPACK/ota/devtree.img
-  cp -f $DEVICE_TOP/logo-google.raw $REPACK/ota/logo.img
-fi
+
 cp -f $DEVICE_OUT/root/init $REPACK/ota/system/bootmenu/2nd-init/init
 cp -f $DEVICE_OUT/root/init.rc $REPACK/ota/system/bootmenu/2nd-init/init.rc
 cp -f $DEVICE_OUT/root/sbin/adbd $REPACK/ota/system/bin/adbd

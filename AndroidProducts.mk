@@ -18,4 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/jordan.mk
+    $(LOCAL_DIR)/kobe.mk

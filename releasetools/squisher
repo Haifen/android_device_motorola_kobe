@@ -133,9 +133,9 @@ $SED -i \
 	$REPACK/ota/system/build.prop
 
 # Include device specific script
-if [ -f $ANDROID_BUILD_TOP/device/motorola/jordan/releasetools/squisher.sh ]; then
+if [ -f $ANDROID_BUILD_TOP/device/motorola/kobe/releasetools/squisher.sh ]; then
 	echo "squisher.sh..."
-	. $ANDROID_BUILD_TOP/device/motorola/jordan/releasetools/squisher.sh
+	. $ANDROID_BUILD_TOP/device/motorola/kobe/releasetools/squisher.sh
 fi
 
 # Delete unnecessary binaries
@@ -179,7 +179,7 @@ if [ -z "$CYANOGEN_NIGHTLY" ]; then
 	OUTFILE=$OUT/update-cm-$MODVERSION-signed.zip
 else
 	OUTFILE=$OUT/update-squished.zip
-	if [ "$TARGET_PRODUCT" = "cyanogen_jordan" ]; then
+	if [ "$TARGET_PRODUCT" = "cyanogen_kobe" ]; then
 		REALDATE=`sed -n -r 's/ro.build.version.incremental=//p' $REPACK/ota/system/build.prop`
 		MODVERSION=`sed -n -e'/ro\.modversion/s/^.*CyanogenMod-//p' $REPACK/ota/system/build.prop`
 		MODVERSION=`echo $MODVERSION | sed -r 's/[0-9]{8}/'$REALDATE'/'`

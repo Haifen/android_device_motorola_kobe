@@ -25,7 +25,7 @@ namespace android {
 
 
 // ----------------------------------------------------------------------------
-// AudioPolicyManager for jordan platform
+// AudioPolicyManager for kobe platform
 // Common audio policy manager code is implemented in AudioPolicyManagerBase class
 // ----------------------------------------------------------------------------
 
