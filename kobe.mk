@@ -90,7 +90,9 @@ PRODUCT_PACKAGES += \
 	DefyParts \
 	Usb \
         libfnc \
-	su
+	su \
+        mot_boot_mode \
+        charge_only_mode
 
 # for jpeg hw encoder/decoder
 # PRODUCT_PACKAGES += libskiahw libOMX.TI.JPEG.Encoder libOMX.TI.JPEG.decoder
