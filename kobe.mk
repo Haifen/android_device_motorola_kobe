@@ -78,7 +78,7 @@ PRODUCT_PACKAGES += \
 	libOMX.TI.MP3.decode \
 	libOMX.TI.WBAMR.decode \
 	libOMX.TI.WMA.decode \
-	libOMX.TI.Video.Decoder \https://github.com/CyanogenKobe/android_device_motorola_kobe/commit/78a0ce7b53fce408d86e541b1014116981763510
+	libOMX.TI.Video.Decoder \
 	libOMX.TI.Video.encoder \
 	libLCML \
 	libOMX_Core \
