@@ -70,9 +70,6 @@
 
 #define ISL29030_IO                     0xA3
 
-#ifndef DEFYPLUS
-
-
 #ifdef __KERNEL__
 struct isl29030_platform_data {
 	int  (*init)(void);
@@ -96,29 +93,5 @@ struct isl29030_platform_data {
 #define ISL29030_IOCTL_SET_ENABLE       _IOW(ISL29030_IO, 0x01, char)
 #define ISL29030_IOCTL_GET_INT_LINE     _IOR(ISL29030_IO, 0x02, char)
 
-#else //DEFYPLUS
-
-#define ISL29030_REGULATOR_NAME_LENGTH  10
-#ifdef __KERNEL__
-struct isl29030_platform_data {
-        u8  configure;
-        u8  interrupt_cntrl;
-        u8  prox_lower_threshold;
-        u8  prox_higher_threshold;
-        u8  crosstalk_vs_covered_threshold;
-        u8  default_prox_noise_floor;
-        u8  num_samples_for_noise_floor;
-        u32 lens_percent_t;
-        u16 irq;
-        u8  regulator_name[ISL29030_REGULATOR_NAME_LENGTH];
-} __attribute__ ((packed));
-#endif
-
-#define ISL29030_IOCTL_GET_ENABLE       _IOR(ISL29030_IO, 0x00, char)
-#define ISL29030_IOCTL_SET_ENABLE       _IOW(ISL29030_IO, 0x01, char)
-#define ISL29030_IOCTL_GET_LIGHT_ENABLE _IOR(ISL29030_IO, 0x02, char)
-#define ISL29030_IOCTL_SET_LIGHT_ENABLE _IOW(ISL29030_IO, 0x03, char)
-
-#endif // DEFYPLUS
 
 #endif // _LINUX_ISL29030_H__

@@ -32,13 +32,8 @@
 
 #define TAG "ISL29030"
 
-#ifdef DEFYPLUS
-# define PROX_DEVICE "light-prox"
-# define ISL_DEVICE  "light-prox"
-#else
 # define PROX_DEVICE "proximity"
 # define ISL_DEVICE  "als"
-#endif
 
 /*****************************************************************************/
 
@@ -183,26 +178,6 @@ int SensorISL29030L::enable(int32_t handle, int en)
 {
     int err = 0;
 
-#ifdef DEFYPLUS
-    char newState = en ? 1 : 0;
-    if (newState == mEnabled)
-        return err;
-
-    if (!mEnabled)
-        open_device();
-
-    err = ioctl(dev_fd, ISL29030_IOCTL_SET_LIGHT_ENABLE, &newState);
-    err = err < 0 ? -errno : 0;
-
-    LOGE_IF(err, TAG "L: ISL29030_IOCTL_SET_LIGHT_ENABLE failed (%s)", strerror(-err));
-
-    if (!err || !newState)
-        mEnabled = newState;
-
-    if (!mEnabled)
-        close_device();
-#endif
-
     mEnabled = en ? 1 : 0;
 
     return err;
@@ -211,19 +186,7 @@ int SensorISL29030L::enable(int32_t handle, int en)
 
 int SensorISL29030L::isEnabled()
 {
-#ifdef DEFYPLUS
-    int err = 0;
-    char enabled = 0;
-
-    err = ioctl(dev_fd, ISL29030_IOCTL_GET_LIGHT_ENABLE, &enabled);
-    err = err < 0 ? -errno : 0;
-
-    LOGE_IF(err, TAG "L: ISL29030_IOCTL_GET_LIGHT_ENABLE failed (%s)", strerror(-err));
-
-    return enabled;
-#else
     return mEnabled;
-#endif
 }
 
 
