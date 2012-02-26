@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES += \
 	device/motorola/kobe/bootmenu/recovery/recovery.fstab:system/etc/recovery.fstab \
 	device/motorola/kobe/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
 	device/motorola/kobe/prebuilt/etc/init.d/03adbd:system/etc/init.d/03adbd \
-	device/motorola/kobe/prebuilt/etc/init.d/04pdsbackup:system/etc/init.d/04pdsbackup \
 	device/motorola/kobe/prebuilt/etc/init.d/05mountsd:system/etc/init.d/05mountsd \
 	device/motorola/kobe/prebuilt/etc/init.d/08backlight:system/etc/init.d/08backlight \
 	device/motorola/kobe/prebuilt/etc/init.d/10kernel_tuning:system/etc/init.d/10kernel_tuning \
