@@ -29,7 +29,6 @@ PRODUCT_COPY_FILES += \
 	device/motorola/kobe/prebuilt/etc/init.d/03adbd:system/etc/init.d/03adbd \
 	device/motorola/kobe/prebuilt/etc/init.d/05mountsd:system/etc/init.d/05mountsd \
 	device/motorola/kobe/prebuilt/etc/init.d/08backlight:system/etc/init.d/08backlight \
-	device/motorola/kobe/prebuilt/etc/init.d/10kernel_tuning:system/etc/init.d/10kernel_tuning \
 	device/motorola/kobe/prebuilt/etc/init.d/90multitouch:system/etc/init.d/90multitouch \
 	device/motorola/kobe/prebuilt/etc/profile:system/etc/profile \
 	device/motorola/kobe/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
