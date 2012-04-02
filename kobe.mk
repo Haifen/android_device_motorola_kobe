@@ -21,14 +21,8 @@
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-<<<<<<< HEAD
-## (1) First, the most specific values, i.e. the aspects that are specific to GSM
-
 ## (2) Also get non-open-source files if available
 $(call inherit-product-if-exists, vendor/motorola/kobe/kobe-vendor.mk)
-=======
-$(call inherit-product-if-exists, vendor/motorola/jordan/jordan-vendor.mk)
->>>>>>> e1aba5d... more cleanup
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
