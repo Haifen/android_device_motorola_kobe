@@ -30,7 +30,10 @@ cp $REPACK/ota/system/etc/terminfo/l/linux $REPACK/ota/system/etc/terminfo/x/xte
 # prebuilt boot, devtree, logo & updater-script
 rm -f $REPACK/ota/boot.img
 
-cp -f $DEVICE_TOP/updater-script $REPACK/ota/META-INF/com/google/android/updater-script
+cp -f $DEVICE_TOP/releasetools/updater-script $REPACK/ota/META-INF/com/google/android/updater-script
+
+# keep multiboot specific files, if installed
+cat $DEVICE_TOP/releasetools/multiboot_backup_list.txt >> $REPACK/ota/system/etc/custom_backup_list.txt
 
 cp -f $DEVICE_OUT/root/init $REPACK/ota/system/bootmenu/2nd-init/init
 cp -f $DEVICE_OUT/root/init.rc $REPACK/ota/system/bootmenu/2nd-init/init.rc
