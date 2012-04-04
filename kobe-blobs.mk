@@ -44,9 +44,9 @@ PRODUCT_COPY_FILES += \
 	device/motorola/kobe/modules/modules.dep:system/lib/modules/modules.dep \
 
 ifdef CYANOGEN_RELEASE
-	PRODUCT_COPY_FILES += device/motorola/kobe/custom_backup_release.txt:system/etc/custom_backup_list.txt
+	PRODUCT_COPY_FILES += device/motorola/kobe/releasetools/custom_backup_release.txt:system/etc/custom_backup_list.txt
 else
-	PRODUCT_COPY_FILES += device/motorola/kobe/custom_backup_list.txt:system/etc/custom_backup_list.txt
+	PRODUCT_COPY_FILES += device/motorola/kobe/releasetools/custom_backup_list.txt:system/etc/custom_backup_list.txt
 endif
 
 #app

@@ -4,7 +4,7 @@
 # cyanogen / CyanogenDefy
 #
 
-echo "JORDAN SQUISHER:"
+echo "Kobe SQUISHER:"
 echo "================"
 
 OUT_TARGET_HOST=`uname -a | grep Darwin`
