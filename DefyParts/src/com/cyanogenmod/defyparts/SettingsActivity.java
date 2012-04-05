@@ -1,4 +1,3 @@
-
 package com.cyanogenmod.defyparts;
 
 import android.app.AlertDialog;
@@ -6,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -90,14 +88,14 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
                 AlertDialog dialog = new AlertDialog.Builder(this)
                     .setTitle(R.string.touch_point_warning_title)
                     .setMessage(R.string.touch_point_warning_message)
-                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             setTouchPointSetting(value);
                             touchPointsPref.setValue(value);
                         }
                     })
-                    .setNegativeButton(R.string.no, null)
+                    .setNegativeButton(android.R.string.no, null)
                     .create();
 
                 dialog.show();
@@ -110,21 +108,6 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 
             mPm.setApplicationEnabledSetting(KINETO_PACKAGE, setting, 0);
             SystemProperties.set(PROP_KINETO_ENABLED, value ? "1" : "0");
-
-            AlertDialog dialog = new AlertDialog.Builder(this)
-                    .setTitle(R.string.kineto_reboot_prompt_title)
-                    .setMessage(R.string.kineto_reboot_prompt_message)
-                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
-                            pm.reboot(null);
-                        }
-                    })
-                    .setNegativeButton(R.string.no, null)
-                    .create();
-
-            dialog.show();
         }
 
         return true;
