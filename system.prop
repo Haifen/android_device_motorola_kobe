@@ -66,3 +66,5 @@ persist.sys.camera-mute=0
 # enable adbd during first boot (for dalvik cache problems)
 persist.service.adb.enable=1
 
+# Scrolling cache 0:enable, 1:default enable, 2:default disable, 3:disable
+persist.sys.scrollingcache=2
