@@ -83,44 +83,10 @@ sp<CameraHardwareInterface> KobeCameraWrapper::createInstance(int cameraId)
     return hardware;
 }
 
-static bool
-deviceCardMatches(const char *device, const char *matchCard)
-{
-    struct v4l2_capability caps;
-    int fd = ::open(device, O_RDWR);
-    bool ret;
-
-    if (fd < 0) {
-        return false;
-    }
-
-    if (::ioctl(fd, VIDIOC_QUERYCAP, &caps) < 0) {
-        ret = false;
-    } else {
-        const char *card = (const char *) caps.card;
-
-        LOGD("device %s card is %s\n", device, card);
-        ret = strstr(card, matchCard) != NULL;
-    }
-
-    ::close(fd);
-
-    return ret;
-}
-
 KobeCameraWrapper::KobeCameraWrapper(int cameraId) :
     mMotoInterface(g_motoOpenCameraHardware(cameraId)),
-    mCameraType(CAM_UNKNOWN)
+    mCameraType(CAM_SOC)
 {
-    struct v4l2_capability caps;
-
-    if (deviceCardMatches("/dev/video3", "camise")) {
-        LOGI("Detected SOC device\n");
-        mCameraType = CAM_SOC;
-    } else if (deviceCardMatches("/dev/video0", "mt9p012")) {
-        LOGI("Detected BAYER device\n");
-        mCameraType = CAM_BAYER;
-    }
 }
 
 KobeCameraWrapper::~KobeCameraWrapper()
@@ -247,7 +213,12 @@ KobeCameraWrapper::cancelPicture()
 status_t
 KobeCameraWrapper::setParameters(const CameraParameters& params)
 {
-    return mMotoInterface->setParameters(params);
+    CameraParameters pars(params.flatten());
+    status_t retval;
+
+    retval = mMotoInterface->setParameters(pars);
+
+    return retval;
 }
 
 CameraParameters

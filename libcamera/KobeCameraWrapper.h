@@ -50,9 +50,7 @@ private:
     sp<CameraHardwareInterface> mMotoInterface;
 
     enum {
-	CAM_UNKNOWN,
 	CAM_SOC,
-	CAM_BAYER
     } mCameraType;
 
     static wp<CameraHardwareInterface> singleton;
