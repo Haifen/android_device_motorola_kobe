@@ -7,9 +7,9 @@
 echo "Kobe SQUISHER:"
 echo "================"
 
-DEVICE_OUT=$ANDROID_BUILD_TOP/out/target/product/Kobe
-DEVICE_TOP=$ANDROID_BUILD_TOP/device/motorola/Kobe
-VENDOR_TOP=$ANDROID_BUILD_TOP/vendor/motorola/Kobe
+DEVICE_OUT=$ANDROID_BUILD_TOP/out/target/product/kobe
+DEVICE_TOP=$ANDROID_BUILD_TOP/device/motorola/kobe
+VENDOR_TOP=$ANDROID_BUILD_TOP/vendor/motorola/kobe
 
 OUT_TARGET_HOST=`uname -a | grep Darwin`
 if [ -z "$OUT_TARGET_HOST" ]
