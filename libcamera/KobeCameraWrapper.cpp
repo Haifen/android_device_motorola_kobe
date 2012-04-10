@@ -215,9 +215,7 @@ KobeCameraWrapper::setParameters(const CameraParameters& params)
 {
     CameraParameters pars(params.flatten());
     status_t retval;
-
     retval = mMotoInterface->setParameters(pars);
-
     return retval;
 }
 
@@ -225,7 +223,8 @@ CameraParameters
 KobeCameraWrapper::getParameters() const
 {
     CameraParameters ret = mMotoInterface->getParameters();
-
+    ret.set(CameraParameters::KEY_SMOOTH_ZOOM_SUPPORTED, "false");
+    ret.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES, "320x240,640x480,1280x960,1600x1200,2048x1536");
     return ret;
 }
 
