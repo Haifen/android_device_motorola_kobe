@@ -26,5 +26,5 @@
     <bool name="touchFocusNeedsRect">true</bool>
 
     <!-- Autofocus on camcorder start -->
-    <bool name="focusCamcorderAtStart">false</bool>
+    <bool name="focusCamcorderAtStart">true</bool>
 </resources>
